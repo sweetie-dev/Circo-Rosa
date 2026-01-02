@@ -23,14 +23,14 @@
     </section>
 
     <section class="rsvp">
-      <h3>Confirme sua presença</h3>
-      <form id="rsvp-form">
-        <label>Nome completo<input type="text" name="name" required></label>
-        <label>Quantas pessoas?<input type="number" name="guests" min="1" max="4"value="1" required></label>
-        <label>Mensagem (opcional)<textarea name="message" rows="2"></textarea></label>
-        <button type="submit">Confirmar presença</button>
-      </form>
-      <div id="rsvp-result" class="result" aria-live="polite"></div>
+      <h3>Confirmar presença</h3>
+      <p>Por favor, preencha as informações a baixo para confirmar sua presença.</p>
+      <div class="confirm-whatsapp">
+        <label>Seu nome<input id="confirm-name" type="text" placeholder="Seu nome completo"></label>
+        <label>Nome do acompanhante (opcional)<input id="confirm-guest" type="text" placeholder="Nome do acompanhante"></label>
+        <button id="whatsapp-btn" data-phone="559186294227">Confirmar presença</button>
+        <p class="note">Ao clicar, você será redirecionado para o WhatsApp.</p>
+      </div>
     </section>
 
     <section class="gifts">

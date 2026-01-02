@@ -1,43 +1,34 @@
 document.addEventListener('DOMContentLoaded', function(){
-  const form = document.getElementById('rsvp-form');
-  const result = document.getElementById('rsvp-result');
+  const btn = document.getElementById('whatsapp-btn');
+  const inputName = document.getElementById('confirm-name');
+  const inputGuest = document.getElementById('confirm-guest');
 
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    result.textContent = '';
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
+  if(!btn) return;
 
-    const data = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      guests: parseInt(form.guests.value,10) || 1,
-      message: form.message.value.trim()
-    };
-
-    try{
-      const res = await fetch('/api/rsvp', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(data)
-      });
-      if(res.ok){
-        result.style.color = 'green';
-        result.textContent = 'Obrigado! Sua confirmação foi recebida.';
-        form.reset();
-      } else {
-        const err = await res.json().catch(()=>({message:'Erro ao enviar'}));
-        result.style.color = 'crimson';
-        result.textContent = err.message || 'Erro ao enviar. Tente novamente.';
-      }
-    }catch(err){
-      result.style.color = 'crimson';
-      result.textContent = 'Erro de conexão. Verifique sua internet.';
-    } finally{
-      btn.disabled = false;
-      btn.textContent = 'Confirmar presença';
+  btn.addEventListener('click', function(){
+    const name = (inputName && inputName.value || '').trim();
+    const guest = (inputGuest && inputGuest.value || '').trim();
+    if(!name){
+      alert('Por favor, digite seu nome antes de confirmar.');
+      inputName && inputName.focus();
+      return;
     }
+
+    let phone = (btn.dataset.phone || '').replace(/[^0-9]/g, '');
+    if(!phone){
+      alert('Número de WhatsApp não configurado. Atualize o atributo data-phone do botão.');
+      return;
+    }
+
+    // Mensagem conforme solicitado pelo usuário
+    // "olá sou "o nome da pessoa" e queria confirmar minha presença e de "nome do convidado SE TIVER" para o aniversário da de 1 ano da Clarice."
+    let message = `🎪🎈 olá sou ${name} e queria confirmar minha presença`;
+    if(guest) message += ` e de ${guest}`;
+    message += ` para o aniversário da de 1 ano da Clarice 🎀🌸💖.`;
+
+    const encoded = encodeURIComponent(message);
+    const url = `https://wa.me/${phone}?text=${encoded}`;
+    window.open(url, '_blank');
   });
 });
 
