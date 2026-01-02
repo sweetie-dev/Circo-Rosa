@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const name = (inputName && inputName.value || '').trim();
     const guest = (inputGuest && inputGuest.value || '').trim();
     if(!name){
-      alert('Por favor, digite seu nome antes de confirmar.');
+      alert('Por favor, Digite seu nome para garantir seu lugar no espetáculo.');
       inputName && inputName.focus();
       return;
     }
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Mensagem conforme solicitado pelo usuário
     // "olá sou "o nome da pessoa" e queria confirmar minha presença e de "nome do convidado SE TIVER" para o aniversário da de 1 ano da Clarice."
-    let message = `🎪🎈 olá sou ${name} e queria confirmar minha presença`;
-    if(guest) message += ` e de ${guest}`;
-    message += ` para o aniversário da de 1 ano da Clarice 🎀🌸💖.`;
+    let message = `Oi! Eu sou ${name} e já estou pronto(a) para esse grande espetáculo! `;
+    if(guest) message += ` e Junto comigo está ${guest}`;
+    message += ` 🎟️ Confirmando presença .`;
 
     const encoded = encodeURIComponent(message);
     const url = `https://wa.me/${phone}?text=${encoded}`;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // Floating emojis background
 (function(){
   const EMOJIS = ['💖','🎪','🎈','🎀','🌸'];
-  const COUNT = 14;
+  const COUNT = 3;
   const container = document.getElementById('emoji-bg');
   if(!container) return;
 
