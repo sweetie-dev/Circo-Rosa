@@ -1,0 +1,12 @@
+{
+  "name": "circo-rosa-clarice",
+  "version": "1.0.0",
+  "description": "Site responsivo para o aniversário de 1 ano — Circo Rosa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

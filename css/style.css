@@ -1,0 +1,57 @@
+:root{
+  --bg1:#ffeef6;
+  --bg2:#ffd6e8;
+  --accent:#ff6fa8;
+  --muted:#6b6b6b;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+.site-header{padding:28px 16px;text-align:center;background:transparent}
+.site-header, main, .site-footer{position:relative;z-index:1}
+.site-header h1{margin:0;font-size:1.6rem;color:var(--accent)}
+.site-header p{margin:6px 0 0;font-size:0.95rem;color:var(--muted)}
+.hero{padding:24px 16px;text-align:center}
+.hero-content{background:rgba(255,255,255,0.6);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.hero h2{margin:0 0 6px;font-size:1.25rem}
+.hero p{margin:0;color:var(--muted)}
+
+main{padding:16px}
+.rsvp{margin-top:18px}
+.rsvp h3{margin:0 0 12px}
+form#rsvp-form{display:grid;gap:10px}
+form label{display:flex;flex-direction:column;font-size:0.95rem}
+form input, form textarea{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);font-size:0.95rem}
+form button{background:var(--accent);color:white;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:1rem}
+.result{margin-top:10px;color:green}
+
+.gifts{margin-top:22px}
+.gift-list{display:grid;grid-template-columns:1fr;gap:12px}
+.gift{background:rgba(255,255,255,0.6);padding:12px;border-radius:10px}
+.gift h4{margin:0 0 6px}
+.note{font-size:0.9rem;color:var(--muted);margin-top:10px}
+
+.site-footer{text-align:center;padding:18px;color:var(--muted);font-size:0.9rem}
+
+@media(min-width:720px){
+  .hero-content{max-width:720px;margin:0 auto}
+  main{padding:32px}
+  .gift-list{grid-template-columns:repeat(3,1fr)}
+  .site-header h1{font-size:2rem}
+}
+
+/* Floating emoji background */
+.emoji-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.emoji-bg .emoji{position:absolute;bottom:-10%;opacity:0.95;will-change:transform;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.06));}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.9);opacity:0}
+  8%{opacity:1}
+  100%{transform:translateY(-130vh) scale(1.05);opacity:0}
+}
+

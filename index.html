@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Circo Rosa — Aniversário 1 ano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="emoji-bg" class="emoji-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <h1>Circo Rosa da Clarice</h1>
+    <p>Venha celebrar meu aniversario!</p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Clarice faz 1 ano!</h2>
+        <p>Data: 13 de Março • Local: ...</p>
+      </div>
+    </section>
+
+    <section class="rsvp">
+      <h3>Confirme sua presença</h3>
+      <form id="rsvp-form">
+        <label>Nome completo<input type="text" name="name" required></label>
+        <label>Quantas pessoas?<input type="number" name="guests" min="1" max="4"value="1" required></label>
+        <label>Mensagem (opcional)<textarea name="message" rows="2"></textarea></label>
+        <button type="submit">Confirmar presença</button>
+      </form>
+      <div id="rsvp-result" class="result" aria-live="polite"></div>
+    </section>
+
+    <section class="gifts">
+      <h3>Sugestões de presentes</h3>
+      <div class="gift-list">
+        <article class="gift">
+          <h4>Brinquedos educativos</h4>
+          <p>Blocos de empilhar, livros de pano e brinquedos de encaixe.</p>
+        </article>
+        <article class="gift">
+          <h4>Roupinhas</h4>
+          <p>Tamanhos 6-12 meses, tecidos confortáveis.</p>
+        </article>
+        <article class="gift">
+          <h4>Contribuição para álbum</h4>
+          <p>Pequenas contribuições para fotos e recordações são bem-vindas.</p>
+        </article>
+      </div>
+      <p class="note">Se quiser, envie uma foto ou recado junto com a confirmação.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito com carinho para Clarice • Tema: Circo Rosa</p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
