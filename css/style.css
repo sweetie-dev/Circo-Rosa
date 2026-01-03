@@ -1,77 +1,342 @@
-:root{
+:root {
   --pink: #ffd6e8;
   --ciano: #c6f7ff;
   --purple: #e9d5ff;
-  --yellow: #fff4b1;
-  --accent-1: #ff6fa8;
+  --yellow: #fff5b1;
+  --accent-1: #b21ab4;
   --muted: #6b6b6b;
-  --card: rgba(255,255,255,0.92);
+  --card: rgba(255, 255, 255, 0.92);
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-html, body {overflow-x: hidden}
-body{
-  margin:0;
+
+/* Local downloaded font */
+@font-face {
+  font-family: 'Circus';
+  src: url('../fonts/Circus.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+html,
+body {
+  overflow-x: hidden
+}
+
+body {
+  margin: 0;
   font-family: 'Baloo 2', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-  color:#222;
-  -webkit-font-smoothing:antialiased;
-  background: linear-gradient(180deg,var(--ciano),var(--pink));
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(180deg, var(--ciano), var(--pink));
 }
-.site-header{padding:34px 16px 10px;text-align:center;position:relative;z-index:3}
-.site-header h1{margin:0;font-size:2.0rem;color:var(--accent-1);font-family:'Luckiest Guy',cursive;text-shadow:0 6px 18px rgba(255,127,178,0.12)}
-.hero{position:relative;padding:30px 16px 10px;display:flex;justify-content:center;align-items:center}
-.hero:before{content:'';position:absolute;top:-28px;left:50%;transform:translateX(-50%);width:min(360px,92vw);height:min(120px,28vw);border-radius:50% 50% 0 0/70% 70% 0 0;z-index:1;background:conic-gradient(from 180deg, var(--pink) 0 20%, var(--purple) 20% 40%, var(--ciano) 40% 60%, var(--yellow) 60% 80%, var(--pink) 80% 100%);box-shadow:0 12px 30px rgba(0,0,0,0.06)}
-.hero:after{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:calc(min(360px,92vw) - 20px);height:36px;border-radius:0 0 18px 18px;z-index:2;background:linear-gradient(180deg,rgba(255,255,255,0.24),rgba(255,255,255,0.04))}
-.hero-content{position:relative;z-index:4;max-width:min(820px,94vw);padding:20px;border-radius:12px;background:var(--card);box-shadow:0 18px 40px rgba(0,0,0,0.08);border:3px solid rgba(255,255,255,0.6)}
-.hero h2{margin:0 0 10px;font-size:1.05rem;line-height:1.4;color:#6b1058;font-family:'Luckiest Guy',cursive}
-.hero p{margin:0;color:var(--muted);font-weight:600}
+
+.site-header {
+  padding: 34px 16px 10px;
+  text-align: center;
+  position: relative;
+  z-index: 3
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2.0rem;
+  color: var(--accent-1);
+  font-family: 'Circus', 'Luckiest Guy', cursive;
+  text-shadow: 0 6px 18px rgb(255, 255, 255)
+}
+
+/* Ensure all h1 elements use the downloaded Circus font */
+h1 {
+  font-family: 'Circus', 'Luckiest Guy', cursive;
+  margin: 0;
+}
+
+.hero {
+  position: relative;
+  padding: 30px 16px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.hero:before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, 92vw);
+  height: min(120px, 28vw);
+  border-radius: 50% 50% 0 0/70% 70% 0 0;
+  z-index: 1;
+  background: conic-gradient(from 180deg, var(--pink) 0 20%, var(--purple) 20% 40%, var(--ciano) 40% 60%, var(--yellow) 60% 80%, var(--pink) 80% 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06)
+}
+
+.hero:after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(min(360px, 92vw) - 20px);
+  height: 36px;
+  border-radius: 0 0 18px 18px;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.04))
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  max-width: min(820px, 94vw);
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.6)
+}
+
+.hero h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: #6b1058;
+  font-family: 'Luckiest Guy', cursive
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600
+}
+
+/* Child photo in hero (separate, not inside h1) */
+.hero-child {
+  position: relative;
+  z-index: 5;
+  width: 143px;
+  max-width: 28vw;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  margin-left: 12px;
+  display: block;
+}
+
+@media (min-width:720px) {
+  .hero {
+    justify-content: flex-start;
+    padding: 40px 32px;
+  }
+
+  .hero-content {
+    margin-left: 12px;
+  }
+
+  .hero-child {
+    position: absolute;
+    right: 28px;
+    top: 28px;
+    width: 203px;
+    max-width: 36vw;
+    border-radius: 18px;
+  }
+}
 
 /* curtains effect: left and right panels that slide outward on load */
-.hero .curtain-left, .hero .curtain-right{position:absolute;top:18px;bottom:18px;width:50%;z-index:3;border-radius:8px}
-.hero .curtain-left{left:0;background:linear-gradient(135deg,var(--pink),var(--purple));transform-origin:left center;animation:openLeft 700ms cubic-bezier(.2,.8,.2,1) forwards}
-.hero .curtain-right{right:0;background:linear-gradient(315deg,var(--ciano),var(--yellow));transform-origin:right center;animation:openRight 700ms cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes openLeft{from{transform:translateX(0)}to{transform:translateX(-120%)}}
-@keyframes openRight{from{transform:translateX(0)}to{transform:translateX(120%)}}
+.hero .curtain-left,
+.hero .curtain-right {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  width: 50%;
+  z-index: 3;
+  border-radius: 8px
+}
 
-main{padding:16px}
-.rsvp{margin-top:18px}
-.rsvp h3{margin:0 0 12px}
-form#rsvp-form{display:grid;gap:10px}
-form label{display:flex;flex-direction:column;font-size:0.95rem}
-form input, form textarea{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);font-size:0.95rem}
-form button{background:var(--accent-1);color:white;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:1rem}
-.result{margin-top:10px;color:green}
+.hero .curtain-left {
+  left: 0;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  transform-origin: left center;
+  animation: openLeft 700ms cubic-bezier(.2, .8, .2, 1) forwards
+}
+
+.hero .curtain-right {
+  right: 0;
+  background: linear-gradient(315deg, var(--ciano), var(--yellow));
+  transform-origin: right center;
+  animation: openRight 700ms cubic-bezier(.2, .8, .2, 1) forwards
+}
+
+@keyframes openLeft {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-120%)
+  }
+}
+
+@keyframes openRight {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(120%)
+  }
+}
+
+main {
+  padding: 16px
+}
+
+.rsvp {
+  margin-top: 18px
+}
+
+.rsvp h3 {
+  margin: 0 0 12px
+}
+
+form#rsvp-form {
+  display: grid;
+  gap: 10px
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem
+}
+
+form button {
+  background: var(--accent-1);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem
+}
+
+.result {
+  margin-top: 10px;
+  color: green
+}
 
 /* Ensure form controls inherit site font and feel consistent */
-input,button,textarea,select{font-family:inherit}
+input,
+button,
+textarea,
+select {
+  font-family: inherit
+}
 
 /* Styles for the confirm-whatsapp block (uses same visual language)
   This keeps inputs, labels and button consistent with the rest of the site. */
-.confirm-whatsapp{margin-top:14px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.04)}
-.confirm-whatsapp label{display:block;margin:8px 0;font-size:0.95rem}
-.confirm-whatsapp input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);font-size:0.95rem}
-.confirm-whatsapp button{margin-top:8px;background:linear-gradient(90deg,var(--accent-1),#ff8fc0);color:#fff;border:none;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,0.06);transition:transform .12s ease,box-shadow .12s ease}
-.confirm-whatsapp button:hover{transform:translateY(-3px);box-shadow:0 18px 30px rgba(0,0,0,0.08)}
+.confirm-whatsapp {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+.confirm-whatsapp label {
+  display: block;
+  margin: 8px 0;
+  font-size: 0.95rem
+}
+
+.confirm-whatsapp input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem
+}
+
+.confirm-whatsapp button {
+  margin-top: 8px;
+  background: linear-gradient(90deg, var(--accent-1), #ff8fc0);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transition: transform .12s ease, box-shadow .12s ease
+}
+
+.confirm-whatsapp button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08)
+}
 
 
-.gifts{margin-top:22px}
-.gift-list{display:grid;grid-template-columns:1fr;gap:12px}
-.gift{background:rgba(255,255,255,0.6);padding:12px;border-radius:10px}
-.gift h4{margin:0 0 6px}
-.note{font-size:0.9rem;color:var(--muted);margin-top:10px}
+.gifts {
+  margin-top: 22px
+}
+
+.gift-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px
+}
+
+.gift {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 12px;
+  border-radius: 10px
+}
+
+.gift h4 {
+  margin: 0 0 6px
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 10px
+}
 
 /* Section & paragraph typographic treatments to match circus theme */
-.rsvp h3, .gifts h3{
+.rsvp h3,
+.gifts h3 {
   font-family: 'Luckiest Guy', cursive;
   color: var(--accent-1);
   font-size: 1.35rem;
   text-align: center;
   margin-bottom: 8px;
   letter-spacing: 0.6px;
-  text-shadow: 0 3px 6px rgba(255,127,178,0.08);
+  text-shadow: 0 3px 6px rgba(255, 127, 178, 0.08);
 }
 
-.rsvp p, .gifts p, .gift p, .site-footer p{
+.rsvp p,
+.gifts p,
+.gift p,
+.site-footer p {
   font-family: 'Baloo 2', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
   color: #5a2a4a;
   font-size: 1rem;
@@ -79,39 +344,107 @@ input,button,textarea,select{font-family:inherit}
   text-align: center;
 }
 
-.gift h4{
+.gift h4 {
   font-family: 'Luckiest Guy', cursive;
   font-size: 1.05rem;
   color: #9b2b66;
   margin-bottom: 6px;
 }
 
-.confirm-whatsapp label{display:block;margin:10px 0;position:relative}
-.confirm-whatsapp label:before{content:'🎟️';position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:18px}
-.confirm-whatsapp input{padding-left:38px}
-.confirm-whatsapp input::placeholder{color:#b07ea3;opacity:0.9;font-style:italic}
+.confirm-whatsapp label {
+  display: block;
+  margin: 10px 0;
+  position: relative
+}
 
-.note{font-style:italic;color:#70486a}
+.confirm-whatsapp label:before {
+  content: '🎟️';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px
+}
+
+.confirm-whatsapp input {
+  padding-left: 38px
+}
+
+.confirm-whatsapp input::placeholder {
+  color: #b07ea3;
+  opacity: 0.9;
+  font-style: italic
+}
+
+.note {
+  font-style: italic;
+  color: #70486a
+}
 
 /* Slight card accent for gift items */
-.gift{padding:14px;border-radius:12px;border:1px solid rgba(155,43,102,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.97),rgba(255,250,255,0.98))}
+.gift {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(155, 43, 102, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 255, 0.98))
+}
 
 
-.site-footer{text-align:center;padding:18px;color:var(--muted);font-size:0.9rem}
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 0.9rem
+}
 
-@media(min-width:720px){
-  .hero-content{max-width:720px;margin:0 auto}
-  main{padding:32px}
-  .gift-list{grid-template-columns:repeat(3,1fr)}
-  .site-header h1{font-size:2rem}
+@media(min-width:720px) {
+  .hero-content {
+    max-width: 720px;
+    margin: 0 auto
+  }
+
+  main {
+    padding: 32px
+  }
+
+  .gift-list {
+    grid-template-columns: repeat(3, 1fr)
+  }
+
+  .site-header h1 {
+    font-size: 2rem
+  }
 }
 
 /* Floating emoji background */
-.emoji-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.emoji-bg .emoji{position:absolute;bottom:-10%;opacity:0.95;will-change:transform;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.06));}
-@keyframes floatUp{
-  0%{transform:translateY(0) scale(0.9);opacity:0}
-  8%{opacity:1}
-  100%{transform:translateY(-130vh) scale(1.05);opacity:0}
+.emoji-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0
 }
 
+.emoji-bg .emoji {
+  position: absolute;
+  bottom: -10%;
+  opacity: 0.95;
+  will-change: transform;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.06));
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0
+  }
+
+  8% {
+    opacity: 1
+  }
+
+  100% {
+    transform: translateY(-130vh) scale(1.05);
+    opacity: 0
+  }
+}
