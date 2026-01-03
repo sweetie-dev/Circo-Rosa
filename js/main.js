@@ -1,21 +1,21 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('whatsapp-btn');
   const inputName = document.getElementById('confirm-name');
   const inputGuest = document.getElementById('confirm-guest');
 
-  if(!btn) return;
+  if (!btn) return;
 
-  btn.addEventListener('click', function(){
+  btn.addEventListener('click', function () {
     const name = (inputName && inputName.value || '').trim();
     const guest = (inputGuest && inputGuest.value || '').trim();
-    if(!name){
+    if (!name) {
       alert('Por favor, Digite seu nome para garantir seu lugar no espetáculo.');
       inputName && inputName.focus();
       return;
     }
 
     let phone = (btn.dataset.phone || '').replace(/[^0-9]/g, '');
-    if(!phone){
+    if (!phone) {
       alert('Número de WhatsApp não configurado. Atualize o atributo data-phone do botão.');
       return;
     }
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // Mensagem conforme solicitado pelo usuário
     // "olá sou "o nome da pessoa" e queria confirmar minha presença e de "nome do convidado SE TIVER" para o aniversário da de 1 ano da Clarice."
     let message = `Oi! Eu sou ${name} e já estou pronto(a) para esse grande espetáculo! `;
-    if(guest) message += ` e Junto comigo está ${guest}`;
+    if (guest) message += ` e Junto comigo está ${guest}`;
     message += ` 🎟️ Confirmando presença .`;
 
     const encoded = encodeURIComponent(message);
@@ -33,18 +33,18 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 // Floating emojis background
-(function(){
-  const EMOJIS = ['💖','🎪','🎈','🎀','🌸'];
-  const COUNT = 3;
+(function () {
+  const EMOJIS = ['💖', '🎪', '🎈', '🎀', '🌸'];
+  const COUNT = 2;
   const container = document.getElementById('emoji-bg');
-  if(!container) return;
+  if (!container) return;
 
-  function rand(min, max){ return Math.random()*(max-min)+min }
+  function rand(min, max) { return Math.random() * (max - min) + min }
 
-  for(let i=0;i<COUNT;i++){
+  for (let i = 0; i < COUNT; i++) {
     const el = document.createElement('div');
     el.className = 'emoji';
-    el.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+    el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
     const left = rand(2, 96);
     const size = Math.round(rand(18, 44));
     const dur = rand(6, 18);
@@ -53,20 +53,20 @@ document.addEventListener('DOMContentLoaded', function(){
     el.style.fontSize = size + 'px';
     el.style.animation = `floatUp ${dur}s linear ${delay}s infinite`;
     // Slight horizontal drift using transform
-    el.style.transform = `translateY(0) rotate(${Math.round(rand(-20,20))}deg)`;
+    el.style.transform = `translateY(0) rotate(${Math.round(rand(-20, 20))}deg)`;
     container.appendChild(el);
   }
 
   // regenerate on resize for better spread
   let resizeTimer = null;
-  window.addEventListener('resize', ()=>{
+  window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(()=>{
-      while(container.firstChild) container.removeChild(container.firstChild);
-      for(let i=0;i<COUNT;i++){
+    resizeTimer = setTimeout(() => {
+      while (container.firstChild) container.removeChild(container.firstChild);
+      for (let i = 0; i < COUNT; i++) {
         const el = document.createElement('div');
         el.className = 'emoji';
-        el.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+        el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
         const left = rand(2, 96);
         const size = Math.round(rand(18, 44));
         const dur = rand(6, 18);
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function(){
         el.style.left = left + '%';
         el.style.fontSize = size + 'px';
         el.style.animation = `floatUp ${dur}s linear ${delay}s infinite`;
-        el.style.transform = `translateY(0) rotate(${Math.round(rand(-20,20))}deg)`;
+        el.style.transform = `translateY(0) rotate(${Math.round(rand(-20, 20))}deg)`;
         container.appendChild(el);
       }
     }, 250);

@@ -68,6 +68,13 @@ h1 {
   align-items: center
 }
 
+/* Apply Dancing Script to the hero section */
+.hero {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
 .hero:before {
   content: '';
   position: absolute;
@@ -111,9 +118,9 @@ h1 {
   font-size: 1.05rem;
   line-height: 1.4;
   color: #6b1058;
-  font-family: 'Luckiest Guy', cursive
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
 }
-
 .hero p {
   margin: 0;
   color: var(--muted);
@@ -203,11 +210,14 @@ main {
 }
 
 .rsvp {
-  margin-top: 18px
+  margin-top: 18px;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-optical-sizing: auto;
 }
 
 .rsvp h3 {
-  margin: 0 0 12px
+  margin: 0 0 12px;
 }
 
 form#rsvp-form {
@@ -278,8 +288,8 @@ select {
 
 .confirm-whatsapp button {
   margin-top: 8px;
-  background: linear-gradient(90deg, var(--accent-1), #ff8fc0);
-  color: #fff;
+  background: linear-gradient(90deg, var(--accent-1), #ab2cd8);
+  color: #ffffff;
   border: none;
   padding: 12px 16px;
   border-radius: 10px;
@@ -324,7 +334,7 @@ select {
 /* Section & paragraph typographic treatments to match circus theme */
 .rsvp h3,
 .gifts h3 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: "Pacifico", cursive;
   color: var(--accent-1);
   font-size: 1.35rem;
   text-align: center;
@@ -377,7 +387,6 @@ select {
 }
 
 .note {
-  font-style: italic;
   color: #70486a
 }
 
